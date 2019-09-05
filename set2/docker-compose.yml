@@ -27,3 +27,7 @@ services:
     labels:
     - "traefik.port=80"
     - "traefik.frontend.rule=Host:app4.test"
+networks:
+  internal-network:
+    internal: true
+

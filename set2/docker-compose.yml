@@ -1,35 +1,40 @@
 version: '3.0'
 services:
 
-  # app3, app4 are Caddy instances listening to port 80 and serving an index.html.
+  # app3, app4 and app3 are Caddy instances listening to port 80 and serving an index.html.
   app3:
     build:
       context: .
       dockerfile: app3-Dockerfile
     networks:
-      internal-network:
+      # internal-network:
         # the aliases are not required, but are useful if the applications want to internally
         # reference each other by host name
-        aliases:
-        - "app3.test"
+      #   aliases:
+      #   - "app3.test"
+      default:
     labels:
     - "traefik.port=80"
-    - "traefik.frontend.rule=Host:app3.test"
-    - "traefik.docker.network=outside-world"
+    - "traefik.frontend.rule=Host:app3.docker.iostw.com"
+    # - "traefik.docker.network=default"
 
   app4:
     build:
       context: .
       dockerfile: app4-Dockerfile
     networks:
-      internal-network:
-        aliases:
-        - "app4.test"
+      # internal-network:
+      #   aliases:
+      #   - "app4.test"
+      default:
     labels:
     - "traefik.port=80"
-    - "traefik.frontend.rule=Host:app4.test"
-    - "traefik.docker.network=outside-world"
-networks:
-  internal-network:
-    internal: true
+    - "traefik.frontend.rule=Host:app4.docker.iostw.com"
+    # - "traefik.docker.network=default"
 
+networks:
+  # internal-network:
+  #   internal: true
+  default:
+    external:
+      name: traefik_net

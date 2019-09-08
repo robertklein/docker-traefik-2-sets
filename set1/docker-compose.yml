@@ -15,7 +15,7 @@ services:
       default:
     labels:
     - "traefik.port=80"
-    - "traefik.frontend.rule=Host:app1.test"
+    - "traefik.frontend.rule=Host:app1.docker.iostw.com"
     # - "traefik.docker.network=default"
 
   app2:
@@ -29,7 +29,7 @@ services:
       default:
     labels:
     - "traefik.port=80"
-    - "traefik.frontend.rule=Host:app2.test"
+    - "traefik.frontend.rule=Host:app2.docker.iostw.com"
     # - "traefik.docker.network=default"
 
 networks:

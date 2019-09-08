@@ -9,6 +9,7 @@ services:
     - "80:80"
     # management UI
     - "8080:8080"
+    - "443:443"
     volumes:
     # traefik does its magic by reading information about running containers from the docker socket
     # - /var/run/docker.sock:/var/run/docker.sock
@@ -16,6 +17,7 @@ services:
     - ./traefik.toml:/etc/traefik/traefik.toml:ro
     #- ~/ssl:/etc/traefik/ssl:ro
     - /var/run/docker.sock:/var/run/docker.sock:ro
+    - ./acme.json:/etc/acme.json
     networks:
       default:
 

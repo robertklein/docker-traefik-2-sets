@@ -25,11 +25,12 @@
     #
     # Required
     #
-    email = "test@traefik.io"
+    email = "robertklein.sk@gmail.com"
 
     # File or key used for certificates storage.
     #
     # Required
     #
     storage = "/etc/acme.json"
-    OnHostRule = true
+    entryPoint = "https"
+    onHostRule = true

@@ -1,4 +1,4 @@
-version: '3.5'
+version: '3.0'
 services:
 
   # app3, app4 are Caddy instances listening to port 80 and serving an index.html.
@@ -15,6 +15,7 @@ services:
     labels:
     - "traefik.port=80"
     - "traefik.frontend.rule=Host:app3.test"
+    - "traefik.docker.network=outside-world"
 
   app4:
     build:
@@ -27,6 +28,7 @@ services:
     labels:
     - "traefik.port=80"
     - "traefik.frontend.rule=Host:app4.test"
+    - "traefik.docker.network=outside-world"
 networks:
   internal-network:
     internal: true

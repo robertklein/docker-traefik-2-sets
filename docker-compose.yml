@@ -1,4 +1,4 @@
-version: '3.5'
+version: '3.0'
 services:
 
   traefik:
@@ -11,15 +11,15 @@ services:
     - "8080:8080"
     volumes:
     # traefik does its magic by reading information about running containers from the docker socket
-    - /var/run/docker.sock:/var/run/docker.sock
-    - /dev/null:/traefik.toml
+    # - /var/run/docker.sock:/var/run/docker.sock
+    # - /dev/null:/traefik.toml
+    - ./traefik.toml:/etc/traefik/traefik.toml:ro
+    #- ~/ssl:/etc/traefik/ssl:ro
+    - /var/run/docker.sock:/var/run/docker.sock:ro
     networks:
-      outside-world:
-      internal-network:
+      default:
 
 networks:
-  # everything that is *only* on "internal network" cannot talk to WAN
-  internal-network:
-    internal: true
-  # add this network to a container to make it talk to the rest of the world
-  outside-world:
+  default:
+    external:
+      name: traefik_net

@@ -3,7 +3,8 @@ services:
 
   traefik:
     image: traefik:1.7
-    command: --web --docker --docker.domain=app.test --logLevel=DEBUG
+    # command: --web --docker --docker.domain=app.test --logLevel=DEBUG
+    command: --file.filename=/etc/traefik/treafik.toml
     ports:
     # access this with the correct Host header to access the respective container
     - "80:80"
@@ -14,10 +15,11 @@ services:
     # traefik does its magic by reading information about running containers from the docker socket
     # - /var/run/docker.sock:/var/run/docker.sock
     # - /dev/null:/traefik.toml
-    - ./traefik.toml:/etc/traefik/traefik.toml:ro
+    # - ./traefik.toml:/etc/traefik/traefik.toml:ro
     #- ~/ssl:/etc/traefik/ssl:ro
     - /var/run/docker.sock:/var/run/docker.sock:ro
-    - ./acme.json:/etc/acme.json
+    # - ./acme.json:/etc/acme.json
+    - ./traefik:/etc/traefik:ro
     networks:
       default:
     labels:

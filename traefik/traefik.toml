@@ -32,3 +32,4 @@ defaultEntryPoints = ["http", "https"]
     # Required
     #
     storage = "/etc/acme.json"
+    OnHostRule = true

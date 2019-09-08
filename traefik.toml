@@ -1,20 +1,20 @@
 defaultEntryPoints = ["http", "https"]
 
-[entryPoints]
-    [entryPoints.http]
-    address = ":80"
-      [entryPoints.http.redirect]
-      entryPoint = "https"
-    [entryPoints.https]
-    address = ":443"
-        [entryPoints.https.tls]
-    # [entryPoints.https.tls]
-    #   [[entryPoints.https.tls.certificates]]
-    #   certFile = "/etc/traefik/ssl/_wildcard.project1.com.pem"
-    #   keyFile = "/etc/traefik/ssl/_wildcard.project1.com-key.pem"
-    #   [[entryPoints.https.tls.certificates]]   # repeat this block to add more SSL certificates
-    #   certFile = "/etc/traefik/ssl/_wildcard.project2.com.pem"
-    #   keyFile = "/etc/traefik/ssl/_wildcard.project2.com-key.pem"
+# [entryPoints]
+#     [entryPoints.http]
+#     address = ":80"
+#       [entryPoints.http.redirect]
+#       entryPoint = "https"
+#     [entryPoints.https]
+#     address = ":443"
+#         [entryPoints.https.tls]
+#     # [entryPoints.https.tls]
+#     #   [[entryPoints.https.tls.certificates]]
+#     #   certFile = "/etc/traefik/ssl/_wildcard.project1.com.pem"
+#     #   keyFile = "/etc/traefik/ssl/_wildcard.project1.com-key.pem"
+#     #   [[entryPoints.https.tls.certificates]]   # repeat this block to add more SSL certificates
+#     #   certFile = "/etc/traefik/ssl/_wildcard.project2.com.pem"
+#     #   keyFile = "/etc/traefik/ssl/_wildcard.project2.com-key.pem"
 
 [api]
 

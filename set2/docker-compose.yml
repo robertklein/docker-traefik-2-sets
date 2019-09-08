@@ -16,6 +16,7 @@ services:
     labels:
     - "traefik.port=80"
     - "traefik.frontend.rule=Host:app3.docker.iostw.com"
+    - "traefik.frontend.redirect.entryPoint=https"
     # - "traefik.docker.network=default"
 
   app4:
@@ -30,6 +31,7 @@ services:
     labels:
     - "traefik.port=80"
     - "traefik.frontend.rule=Host:app4.docker.iostw.com"
+    - "traefik.frontend.redirect.entryPoint=https"
     # - "traefik.docker.network=default"
 
 networks:

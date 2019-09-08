@@ -20,6 +20,10 @@ services:
     - ./acme.json:/etc/acme.json
     networks:
       default:
+    labels:
+    - "traefik.port=8080"
+    - "traefik.frontend.rule=Host:docker.iostw.com"
+    - "traefik.frontend.redirect.entryPoint=https"
 
 networks:
   default:
